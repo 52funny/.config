@@ -1,0 +1,10 @@
+# ignore everything
+/*
+/*/
+
+# ... but these:
+!/ranger/
+!/alacritty/
+!/neofetch/
+!/.zshrc
+!/.gitignore
