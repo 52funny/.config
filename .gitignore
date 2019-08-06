@@ -6,5 +6,7 @@
 !/ranger/
 !/alacritty/
 !/neofetch/
+!/nvim/autoload/
+!/nvim/plugged/
 !/.zshrc
 !/.gitignore
