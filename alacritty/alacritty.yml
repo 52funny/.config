@@ -101,15 +101,18 @@ tabspaces: 8
 # Font configuration (changes require restart)
 font:
   # Normal (roman) font face
-  #normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux) monospace
-    #   - (Windows) Consolas
-    #family: monospace
+  normal:
+    family: Noto Mono
+    style: Regular
 
+
+  bold:
+    family: Noto Mono
+    style: Bold
+
+  italic:
+    family: Noto Mono
+    style: Italic
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
@@ -375,7 +378,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Block
+  # style: Block
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
