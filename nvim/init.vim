@@ -26,6 +26,10 @@ let &t_ut=''
 "====
 "Editor
 "====
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
