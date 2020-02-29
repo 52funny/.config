@@ -25,9 +25,9 @@ window:
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  #position:
-  #  x: 0
-  #  y: 0
+  position:
+    x: 500
+    y: 150
 
   # Window padding (changes require restart)
   #
@@ -69,6 +69,7 @@ window:
   #class: Alacritty
 
 scrolling:
+    #faux_multiplier: 3
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
   history: 10000
@@ -84,7 +85,7 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
+  #  faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
@@ -96,22 +97,22 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
+tabspaces: 4
 
 # Font configuration (changes require restart)
 font:
   # Normal (roman) font face
   normal:
-    family: Noto Mono
+    family: Monaco
     style: Regular
 
 
   bold:
-    family: Noto Mono
+    family: Monaco
     style: Bold
 
   italic:
-    family: Noto Mono
+    family: Monaco
     style: Italic
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -172,34 +173,43 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-# Colors (Dracula)
+
+
+
 colors:
   # Default colors
   primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+    background: '0x292C3E'
+    foreground: '0xEBEBEB'
+
+  # Cursor colors
+  # text: '0xFF261E'
+  # cursor: '0xFF261E'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xcaa9fa'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xbfbfbf'
+    black:   '0x0d0d0d'
+    red:     '0xFF301B'
+    green:   '0xA0E521'
+    yellow:  '0xFFC620'
+    blue:    '0x1BA6FA'
+    magenta: '0x8763B8'
+    cyan:    '0x21DEEF'
+    white:   '0xEBEBEB'
 
   # Bright colors
   bright:
-    black:   '0x575b70'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xe6e6e6'
+    black:   '0x6D7070'
+    red:     '0xFF4352'
+    green:   '0xB8E466'
+    yellow:  '0xFFD750'
+    blue:    '0x1BA6FA'
+    magenta: '0xA578EA'
+    cyan:    '0x73FBF1'
+    white:   '0xFEFEF8'
+
+
+
 ## Colors (Tomorrow Night Bright)
 #colors:
   ## Default colors
@@ -372,13 +382,7 @@ selection:
 dynamic_title: true
 
 cursor:
-  # Cursor style
-  #
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  # style: Block
+  style: Beam
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
