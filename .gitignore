@@ -1,6 +1,7 @@
 # ignore everything
 /*
 /*/
+alacritty/alacritty.bak
 
 # ... but these:
 !/ranger/
