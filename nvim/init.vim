@@ -54,8 +54,14 @@ set showcmd
 set hlsearch
 set smartcase
 set ignorecase
+set clipboard=unnamedplus
 
 
+noremap i k
+noremap j h
+noremap k j
+noremap h i
+noremap <SPACE><CR> :nohlsearch<CR>
 
 map S :w<CR>
 map Q :q!<CR>
