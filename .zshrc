@@ -84,3 +84,4 @@ alias c=clear
 alias getip="curl http://myip.ipip.net"
 alias s=neofetch
 alias docker="sudo docker"
+alias lg=lazygit

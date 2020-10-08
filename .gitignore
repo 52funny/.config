@@ -10,3 +10,4 @@ alacritty/alacritty.bak
 !/nvim/init.vim
 !/.zshrc
 !/.gitignore
+!/jesseduffield/
