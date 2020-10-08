@@ -1,0 +1,11 @@
+startuppopupversion: 1
+keybinding:
+  universal:
+    prevItem-alt: 'i'
+    nextItem-alt: 'k'
+    prevBlock-alt: 'j'
+    nextBlock-alt: 'l'
+  files:
+    ignoreFile: 'I'
+  branches:
+    viewGitFlowOptions: 'I'
