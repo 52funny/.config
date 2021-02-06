@@ -30,7 +30,6 @@ let &t_ut=''
 "====
 "Editor
 "====
-
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -54,12 +53,18 @@ set showcmd
 set hlsearch
 set smartcase
 set ignorecase
-
 set clipboard=unnamedplus
-
 nnoremap <C-n> :nohlsearch<CR>
+
+"===
+"Cursor Move
+"===
+noremap K 5k
+noremap J 5j
+
 "use  jj
 inoremap jj <ESC>
+
 map S :w<CR>
 map Q :q!<CR>
 map R :source $MYVIMRC<CR>
@@ -113,6 +118,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'tpope/vim-commentary'
 call plug#end()
 color snazzy
 let g:SnazzyTransparent=1
