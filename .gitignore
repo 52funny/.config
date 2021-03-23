@@ -8,6 +8,7 @@ alacritty/alacritty.bak
 !/alacritty/
 !/neofetch/
 !/nvim/init.vim
+!/nvim/coc-settings.json
 !/.zshrc
 !/.gitignore
 !/jesseduffield/
