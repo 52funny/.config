@@ -34,11 +34,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set list
-set listchars=tab:▸\ ,trail:▫
 
 
 
@@ -53,8 +49,14 @@ set showcmd
 set hlsearch
 set smartcase
 set ignorecase
-set clipboard=unnamedplus
-nnoremap <C-n> :nohlsearch<CR>
+
+"set clipboard=unnamedplus
+
+"set <LEADER> as <SPACE>
+let mapleader=" "
+
+"clear hlsearch
+nnoremap <LEADER><CR> :nohlsearch<CR>
 
 "===
 "Cursor Move
@@ -65,6 +67,9 @@ noremap J 5j
 "use  jj
 "inoremap jj <ESC>
 
+"copy to system clipboard
+vnoremap Y "+y
+
 map S :w<CR>
 map Q :q!<CR>
 map R :source $MYVIMRC<CR>
@@ -73,6 +78,50 @@ map sl :set nosplitright<CR>:vsplit<CR>
 map sr :set splitright<CR>:vsplit<CR>
 map su :set nosplitbelow<CR>:split<CR>
 map sb :set splitbelow<CR>:split<CR>
+
+" Compile function
+noremap <leader>r :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'cpp'
+		set splitbelow
+		exec "!g++ -std=c++11 % -Wall -o %<"
+		:sp
+		:res -15
+		:term ./%<
+	elseif &filetype == 'java'
+		exec "!javac %"
+		exec "!time java %<"
+	elseif &filetype == 'sh'
+		:!time bash %
+	elseif &filetype == 'python'
+		set splitbelow
+		:sp
+		:term python3 %
+	elseif &filetype == 'html'
+		silent! exec "!".g:mkdp_browser." % &"
+	elseif &filetype == 'markdown'
+		exec "InstantMarkdownPreview"
+	elseif &filetype == 'tex'
+		silent! exec "VimtexStop"
+		silent! exec "VimtexCompile"
+	elseif &filetype == 'dart'
+		exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
+		silent! exec "CocCommand flutter.dev.openDevLog"
+	elseif &filetype == 'javascript'
+		set splitbelow
+		:sp
+		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+	elseif &filetype == 'go'
+		set splitbelow
+		:sp
+		:term go run .
+	endif
+endfunc
+
 
 "
 "coc-nvim
@@ -226,6 +275,7 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-pyright',
     \ 'coc-yaml',
+    \ 'coc-yank',
   \ ]
 
 
@@ -238,14 +288,21 @@ nnoremap tt :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 
+"
+""coc-yank
+"
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline'
-    Plug 'connorholyday/vim-snazzy'
+    "Plug 'connorholyday/vim-snazzy'
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'tpope/vim-commentary'
     Plug 'preservim/nerdtree'
+    Plug 'morhetz/gruvbox'
 call plug#end()
-color snazzy
-let g:SnazzyTransparent=1
+colorscheme gruvbox
+
+"colorscheme or snazzy
+"let g:SnazzyTransparent=1

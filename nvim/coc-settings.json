@@ -1,51 +1,40 @@
 {
-    "json.format.enable": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "c",
-        "cpp",
-        "json",
-        "python",
-        "javascirpt",
-        "html",
-        "go"
-    ],
-    "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": [
-                "c",
-                "cpp",
-                "cuda",
-                "objc",
-                "objcpp"
-            ],
-            "rootPatterns": [
-                ".ccls-root",
-                "compile_commands.json"
-            ],
-            "initializationOptions": {
-                "cache": {
-                    "directory": ".ccls-cache"
-                },
-                "client": {
-                    "snippetSupport": true
-                }
-            }
+  "json.format.enable": true,
+  "python.formatting.provider": "autopep8",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "cpp",
+    "json",
+    "python",
+    "javascirpt",
+    "html",
+    "go",
+    "py"
+  ],
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls-root", "compile_commands.json"],
+      "initializationOptions": {
+        "cache": {
+          "directory": ".ccls-cache"
         },
-        "go": {
-            "command": "gopls",
-            "rootPatterns": [
-                "go.mod"
-            ],
-            "trace.server": "verbose",
-            "filetypes": [
-                "go"
-            ],
-            "initializationOptions": {
-                "gocodeCompletionEnabled": true,
-                "diagnosticsEnabled": true,
-                "lintTool": "golint"
-            }
+        "client": {
+          "snippetSupport": true
         }
+      }
+    },
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint"
+      }
     }
+  }
 }
