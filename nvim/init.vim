@@ -86,6 +86,11 @@ map sr :set splitright<CR>:vsplit<CR>
 map su :set nosplitbelow<CR>:split<CR>
 map sb :set splitbelow<CR>:split<CR>
 
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
 " Compile function
 noremap <leader>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -316,6 +321,18 @@ let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " cust
 let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
 let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
 
+"
+""gitgutter
+"
+let g:gitgutter_sign_allow_clobber = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_preview_win_floating = 1
+nnoremap <LEADER>gf :GitGutterFold<CR>
+nnoremap H :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+
 call plug#begin('~/.config/nvim/plugged')
     "Plug 'dracula/vim'
     "Plug 'connorholyday/vim-snazzy'
@@ -328,7 +345,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'luochen1990/rainbow'
     Plug 'gcmt/wildfire.vim'
+
     Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+    Plug 'airblade/vim-gitgutter'
 call plug#end()
 colorscheme gruvbox
 "colorscheme dracula
