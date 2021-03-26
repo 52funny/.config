@@ -1,6 +1,11 @@
 {
   "json.format.enable": true,
+  "tsserver.enable": true,
+  "typescript.format.enabled": true,
+  "javascript.format.enabled": true,
   "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Path": "/Users/52funny/Library/Python/3.8/bin/autopep8",
+  "prettier.formatterPriority": 1,
   "coc.preferences.formatOnSaveFiletypes": [
     "c",
     "cpp",
@@ -31,9 +36,10 @@
       "trace.server": "verbose",
       "filetypes": ["go"],
       "initializationOptions": {
-        "gocodeCompletionEnabled": true,
-        "diagnosticsEnabled": true,
-        "lintTool": "golint"
+        "ui.diagnostic.staticcheck": true,
+        "ui.diagnostic.analyses": {
+          "ST1000": false
+        }
       }
     }
   }

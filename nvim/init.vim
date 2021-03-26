@@ -35,7 +35,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set list
-
+set listchars=tab:\|\ ,trail:▫
 
 
 "====
@@ -69,6 +69,13 @@ noremap J 5j
 
 "copy to system clipboard
 vnoremap Y "+y
+
+
+"open the vimrc file anytime
+noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
+
+"open the coc-settings file anytime
+noremap <LEADER>rv :e ~/.config/nvim/coc-settings.json<cr>
 
 map S :w<CR>
 map Q :q!<CR>
@@ -276,6 +283,7 @@ let g:coc_global_extensions = [
     \ 'coc-pyright',
     \ 'coc-yaml',
     \ 'coc-yank',
+    \ 'coc-tsserver',
   \ ]
 
 
@@ -293,6 +301,11 @@ nnoremap <C-f> :NERDTreeFind<CR>
 "
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
+"
+""rainbow
+"
+let g:rainbow_active = 1
+
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline'
@@ -301,8 +314,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'preservim/nerdtree'
     Plug 'morhetz/gruvbox'
+    Plug 'luochen1990/rainbow'
+    "Plug 'dracula/vim'
 call plug#end()
 colorscheme gruvbox
+"colorscheme dracula
 
 "colorscheme or snazzy
 "let g:SnazzyTransparent=1
