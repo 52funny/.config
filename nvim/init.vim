@@ -306,19 +306,35 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 "
 let g:rainbow_active = 1
 
+"
+""lazygit_nvim
+"
+nnoremap <silent> <leader>lg :LazyGit<CR>
+let g:lazygit_floating_window_winblend = 0 " transparency of floating window
+let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
+let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
+let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
+let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
+
 call plug#begin('~/.config/nvim/plugged')
+    "Plug 'dracula/vim'
+    "Plug 'connorholyday/vim-snazzy'
+    Plug 'morhetz/gruvbox'
+
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline'
-    "Plug 'connorholyday/vim-snazzy'
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'tpope/vim-commentary'
     Plug 'preservim/nerdtree'
-    Plug 'morhetz/gruvbox'
     Plug 'luochen1990/rainbow'
-    "Plug 'dracula/vim'
+    Plug 'gcmt/wildfire.vim'
+    Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 call plug#end()
 colorscheme gruvbox
 "colorscheme dracula
 
 "colorscheme or snazzy
 "let g:SnazzyTransparent=1
+
+exec "nohlsearch"
+
