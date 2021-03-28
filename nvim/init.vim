@@ -37,7 +37,6 @@ set softtabstop=4
 set list
 set listchars=tab:\|\ ,trail:▫
 
-
 "====
 "main
 "====
@@ -90,6 +89,97 @@ map <C-k> <C-w>k
 map <C-j> <C-w>j
 map <C-h> <C-w>h
 map <C-l> <C-w>l
+
+call plug#begin('~/.config/nvim/plugged')
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+    "Plug 'dracula/vim'
+    "Plug 'connorholyday/vim-snazzy'
+    Plug 'morhetz/gruvbox'
+
+    Plug 'tpope/vim-surround'
+    Plug 'vim-airline/vim-airline'
+    Plug 'tpope/vim-commentary'
+    Plug 'preservim/nerdtree'
+    Plug 'luochen1990/rainbow'
+    Plug 'gcmt/wildfire.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
+    Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+    Plug 'airblade/vim-gitgutter'
+call plug#end()
+
+"
+""coc.vim
+"
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-pyright',
+    \ 'coc-yaml',
+    \ 'coc-yank',
+    \ 'coc-tsserver',
+    \ 'coc-pairs',
+    \ 'coc-vimlsp',
+  \ ]
+
+
+"
+""NERDTree
+"
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap tt :NERDTreeToggle<CR>
+"nnoremap <C-f> :NERDTreeFind<CR>
+
+
+"
+""coc-yank
+"
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+"
+""rainbow
+"
+let g:rainbow_active = 1
+
+"
+""lazygit_nvim
+"
+nnoremap <silent> <leader>lg :LazyGit<CR>
+let g:lazygit_floating_window_winblend = 0 " transparency of floating window
+let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
+let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
+let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
+let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
+
+"
+""gitgutter
+"
+let g:gitgutter_sign_allow_clobber = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_preview_win_floating = 1
+nnoremap <LEADER>gf :GitGutterFold<CR>
+nnoremap H :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+
+"
+""fzf
+"
+noremap <silent> <C-p> :Files<CR>
+noremap <silent> <leader>h :History<CR>
+noremap <silent> <leader>w :Buffer<CR>
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+"let g:fzf_preview_window = 'right:60%'
+"let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+colorscheme gruvbox
+"colorscheme dracula
+
+"colorscheme or snazzy
+"let g:SnazzyTransparent=1
 
 " Compile function
 noremap <leader>r :call CompileRunGcc()<CR>
@@ -280,93 +370,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-"
-""coc.vim
-"
-let g:coc_global_extensions = [
-    \ 'coc-json',
-    \ 'coc-pyright',
-    \ 'coc-yaml',
-    \ 'coc-yank',
-    \ 'coc-tsserver',
-    \ 'coc-pairs',
-  \ ]
-
-
-"
-""NERDTree
-"
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap tt :NERDTreeToggle<CR>
-"nnoremap <C-f> :NERDTreeFind<CR>
-
-
-"
-""coc-yank
-"
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-
-"
-""rainbow
-"
-let g:rainbow_active = 1
-
-"
-""lazygit_nvim
-"
-nnoremap <silent> <leader>lg :LazyGit<CR>
-let g:lazygit_floating_window_winblend = 0 " transparency of floating window
-let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
-let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
-let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
-let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
-
-"
-""gitgutter
-"
-let g:gitgutter_sign_allow_clobber = 0
-let g:gitgutter_map_keys = 0
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_preview_win_floating = 1
-nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
-
-"
-""fzf
-"
-noremap <silent> <C-f> :Files<CR>
-noremap <silent> <leader>h :History<CR>
-noremap <silent> <leader>w :Buffer<CR>
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
-"let g:fzf_preview_window = 'right:60%'
-"let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-
-call plug#begin('~/.config/nvim/plugged')
-    "Plug 'dracula/vim'
-    "Plug 'connorholyday/vim-snazzy'
-    Plug 'morhetz/gruvbox'
-
-    Plug 'tpope/vim-surround'
-    Plug 'vim-airline/vim-airline'
-    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'tpope/vim-commentary'
-    Plug 'preservim/nerdtree'
-    Plug 'luochen1990/rainbow'
-    Plug 'gcmt/wildfire.vim'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-
-    Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
-    Plug 'airblade/vim-gitgutter'
-call plug#end()
-colorscheme gruvbox
-"colorscheme dracula
-
-"colorscheme or snazzy
-"let g:SnazzyTransparent=1
 
 exec "nohlsearch"
-
