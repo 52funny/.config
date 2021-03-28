@@ -298,7 +298,7 @@ let g:coc_global_extensions = [
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap tt :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+"nnoremap <C-f> :NERDTreeFind<CR>
 
 
 "
@@ -333,6 +333,16 @@ nnoremap H :GitGutterPreviewHunk<CR>
 nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
 nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 
+"
+""fzf
+"
+noremap <silent> <C-f> :Files<CR>
+noremap <silent> <leader>h :History<CR>
+noremap <silent> <leader>w :Buffer<CR>
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+"let g:fzf_preview_window = 'right:60%'
+"let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
 call plug#begin('~/.config/nvim/plugged')
     "Plug 'dracula/vim'
     "Plug 'connorholyday/vim-snazzy'
@@ -345,6 +355,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'luochen1990/rainbow'
     Plug 'gcmt/wildfire.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
     Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
     Plug 'airblade/vim-gitgutter'
