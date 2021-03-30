@@ -1,52 +1,76 @@
 {
-  "json.format.enable": true,
-  "tsserver.enable": true,
-  "typescript.format.enabled": true,
-  "javascript.format.enabled": true,
-  "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Path": "/Users/52funny/Library/Python/3.8/bin/autopep8",
-  "prettier.formatterPriority": 1,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "c",
-    "cpp",
-    "json",
-    "python",
-    "javascirpt",
-    "html",
-    "go",
-    "py"
-  ],
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls-root", "compile_commands.json"],
-      "initializationOptions": {
-        "cache": {
-          "directory": ".ccls-cache"
+    "json.format.enable": true,
+    "tsserver.enable": true,
+    "typescript.format.enabled": true,
+    "javascript.format.enabled": true,
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Path": "/Users/52funny/Library/Python/3.8/bin/autopep8",
+    "prettier.formatterPriority": 1,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "c",
+        "cpp",
+        "json",
+        "python",
+        "javascirpt",
+        "html",
+        "go",
+        "py"
+    ],
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "cuda",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls-root",
+                "compile_commands.json"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": ".ccls-cache"
+                },
+                "clang": {
+                    "extraArgs": [
+                        "-isystem",
+                        "/usr/local/opt/llvm/include/c++/v1"
+                    ],
+                    "resourceDir": "/usr/local/opt/llvm/lib/clang/11.0.0"
+                },
+                "client": {
+                    "snippetSupport": true
+                }
+            }
         },
-        "client": {
-          "snippetSupport": true
+        "go": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod"
+            ],
+            "trace.server": "verbose",
+            "filetypes": [
+                "go"
+            ],
+            "initializationOptions": {
+                "ui.diagnostic.staticcheck": true,
+                "ui.diagnostic.analyses": {
+                    "ST1000": false
+                }
+            }
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ],
+            "ignoredRootPaths": []
         }
-      }
-    },
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "ui.diagnostic.staticcheck": true,
-        "ui.diagnostic.analyses": {
-          "ST1000": false
-        }
-      }
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": []
     }
-  }
 }
