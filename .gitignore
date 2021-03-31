@@ -1,14 +1,6 @@
-# ignore everything
-/*
-/*/
-alacritty/alacritty.bak
-
-# ... but these:
-!/ranger/
-!/alacritty/
-!/neofetch/
-!/nvim/init.vim
-!/nvim/coc-settings.json
-!/.zshrc
-!/.gitignore
-!/jesseduffield/
+coc/
+nvim/plugged/
+nvim/autoload/
+yarn/
+clash/
+configstore/
