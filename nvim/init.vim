@@ -110,8 +110,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'airblade/vim-gitgutter'
 
     Plug 'honza/vim-snippets'
+    Plug 'laishulu/vim-macos-ime'
 call plug#end()
 
+
+"
+""vim-macos-ime
+"
+let g:macosime_cjk_ime= 'com.apple.inputmethod.SCIM.ITABC'
+let g:macosime_normal_ime = 'com.apple.keylayout.ABC'
 "
 ""coc.vim
 "
