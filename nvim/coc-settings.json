@@ -61,6 +61,10 @@
   "tsserver.enable": true,
   "typescript.format.enabled": true,
   "javascript.format.enabled": true,
+  "javascript.showUnused": true,
+  "pyright.enable": true,
+  "python.pythonPath": "/opt/homebrew/bin/python3",
+  "pyright.organizeimports.provider": "isort",
   "python.formatting.provider": "autopep8",
   "python.formatting.autopep8Path": "/Users/52funny/Library/Python/3.8/bin/autopep8",
   "prettier.formatterPriority": 1,
@@ -86,14 +90,7 @@
       "rootPatterns": [".ccls-root", "compile_commands.json"],
       "initializationOptions": {
         "cache": {
-          "directory": ".ccls-cache"
-        },
-        "clang": {
-          "extraArgs": ["-isystem", "/usr/local/opt/llvm/include/c++/v1"],
-          "resourceDir": "/usr/local/opt/llvm/lib/clang/11.0.0"
-        },
-        "client": {
-          "snippetSupport": true
+          "directory": "/tmp/ccls"
         }
       }
     },

@@ -11,10 +11,6 @@ endif
 "====
 "system
 "====
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set nocompatible
 filetype on
 filetype indent on
@@ -36,6 +32,10 @@ set shiftwidth=4
 set softtabstop=4
 set list
 set listchars=tab:\|\ ,trail:▫
+set foldmethod=syntax
+set foldlevel=99
+set foldenable
+" set cursorline
 
 "====
 "main
@@ -97,6 +97,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     "Plug 'dracula/vim'
     "Plug 'connorholyday/vim-snazzy'
+    Plug 'junegunn/seoul256.vim'
     Plug 'morhetz/gruvbox'
 
     Plug 'tpope/vim-surround'
@@ -113,8 +114,13 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'honza/vim-snippets'
     Plug 'laishulu/vim-macos-ime'
+    Plug 'tmhedberg/SimpylFold'
 call plug#end()
 
+"
+""SimpylFold
+"
+let g:SimpylFold_docstring_preview = 1
 
 "
 ""vim-macos-ime
@@ -202,7 +208,9 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 "let g:fzf_preview_window = 'right:60%'
 "let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
-colorscheme gruvbox
+colo seoul256
+set background=dark
+" colorscheme gruvbox
 "colorscheme dracula
 
 "colorscheme or snazzy
